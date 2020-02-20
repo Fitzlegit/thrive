@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-5 col-sm-offset-4">
+      <h2 class="text-center">Join a Group</h2>
+        <%= bootstrap_form_for @membership do |f| %>
+
+            <%= f.text_field :user_id, value: current_user.id %>
+
+            <%= f.text_field :permission, value: 'student' %>
+
+            <% options = options_from_collection_for_select(Group.all, 'id', 'name')%>
+            <%= f.select  :group_id, options %>
+
+           <%= f.submit "Join", class: 'form-control' %>
+        <% end %>
+    </div>
+
+  </div>
