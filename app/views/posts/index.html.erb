@@ -1,0 +1,13 @@
+<div id="posts">
+  <div class="wrapper">
+    <h2>T.F.I.O INC. - THRIVE FORUM</h2>
+      <% @posts.each do |post| %>
+      <div class="post">
+        <h2 class="title"><%= link_to post.title, post %></h2>
+        <p class="date">Published <%= time_ago_in_words(post.created_at) %> ago
+        <%= "by - #{post.user.first_name}" + " " + "#{post.user.last_name.slice(0)}." %>
+        </p>
+      </div>
+      <% end %>
+    </div>
+</div>

@@ -10,16 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_19_173842) do
+ActiveRecord::Schema.define(version: 2020_02_20_001605) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "memberships", force: :cascade do |t|
-    t.string "group", default: "", null: false
-    t.string "type", default: "student", null: false
+  create_table "groups", force: :cascade do |t|
+    t.string "name", default: "", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "memberships", force: :cascade do |t|
+    t.string "permission", default: "student", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.integer "group_id"
   end
 
   create_table "posts", force: :cascade do |t|
