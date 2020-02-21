@@ -1,6 +1,7 @@
 <div class="new_post">
   <div class="col-sm-8 col-sm-offset-2">
   <%= bootstrap_form_for @post do |f| %>
+    <%= f.text_field :membership_id, value: 4 %>
     <%= f.text_field :title %><br/>
     <%= f.text_area :content %><br/>
     <%= f.submit %>

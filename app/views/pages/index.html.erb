@@ -1,15 +1,14 @@
 <div class="container">
   <div class="row">
     <div id="side-menu"  class="col-sm-3">
-      <h1>YOUR GROUPS</h1>
-      <% current_user.memberships.each do |membership| %>
-      <ul>
-        <li><%= membership.group.name %></li>
-      </ul>
-      <% end %>
+     <%= render 'groups' %>
     </div><!-- side-menu -->
 
     <div id="main-content" class="col-sm-9">
+     <%= render 'user_post' %>
+
+
+
     </div><!-- main-content -->
 
   </div><!-- row -->

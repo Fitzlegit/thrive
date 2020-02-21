@@ -1,0 +1,24 @@
+<% if signed_in? %>
+<div id="col-sm-3 single-post-card">
+  <div class="card">
+  <% if membership_posts? %>
+        <% Membership.all.each do |membership| %>
+          <% membership.posts.each do |post| %>
+            <% if current_user.memberships.find_by_id(post.membership_id) %>
+          <div class="post-text">
+          </div>
+          <div class="post-content">
+            <h2><%= post.title %></h2>
+            <p><%= post.content %></p>
+            <div class="posted-by">
+              <p class="date">Published <%= time_ago_in_words(post.created_at) %> ago
+              <%= "by - #{current_user.first_name}" + " " + "#{current_user.last_name.slice(0)}." %>
+            </div>
+          </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
+<% end %>
