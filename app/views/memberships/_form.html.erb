@@ -4,9 +4,9 @@
       <h2 class="text-center">Join a Group</h2>
         <%= bootstrap_form_for @membership do |f| %>
 
-            <%= f.text_field :user_id, value: current_user.id %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
 
-            <%= f.text_field :permission, value: 'student' %>
+            <%= f.hidden_field :permission, value: 'student' %>
 
             <% options = options_from_collection_for_select(Group.all, 'id', 'name')%>
             <%= f.select  :group_id, options %>

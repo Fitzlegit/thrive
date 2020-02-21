@@ -14,11 +14,11 @@ class MembershipsController < ApplicationController
   def create
     @membership = current_user.memberships.build(membership_params)
 
-    if @membership.save
-      redirect_to @membership
-    else
+    if current_user.memberships.find(@membership.group_id)
       render 'new'
-      flash[:alert] = 'Unable to join group'
+      flash[:notice] = "You've already joined that group"
+    else
+      @membership.save
     end
   end
 
