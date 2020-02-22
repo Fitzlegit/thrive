@@ -22,7 +22,6 @@ class MembershipsController < ApplicationController
     if current_user.memberships.exists?(@membership.group_id)
       render 'new'
       flash[:notice] = "You've already joined that group"
-      flash[:notice]
     else
       @membership.save
       redirect_to @membership
