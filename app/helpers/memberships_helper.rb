@@ -6,12 +6,10 @@ module MembershipsHelper
 
   # checks if user has any post
   def membership_posts?
-    if check_membership?
-      memberships = Membership.find_by_user_id(current_user.id)
-      memberships.posts.exists?
-    else
-      return
-    end
+    return unless check_membership?
+
+    memberships = Membership.find_by_user_id(current_user.id)
+    memberships.posts.exists?
   end
 
   # sets current_users membership groups
@@ -25,11 +23,15 @@ module MembershipsHelper
     @group_ids
   end
 
-  # destroys numerical rep of user groups & returns an array of current_users groups by name
+  # destroys numerical rep of user groups & returns an array user group records
   def current_user_groups
     user_group_ids
     @group_ids.collect do |id|
-      Group.all.find_by_id(id).name
+      Group.all.find_by_id(id)
     end
+  end
+
+  def current_membership
+    Membership.find_by_user_id_and_group_id(current_user.id, 1)
   end
 end

@@ -3,7 +3,7 @@
   <% if current_user.memberships.exists? %>
     <% current_user.memberships.each do |membership| %>
     <ul>
-      <li><%= membership.group.name %></li>
+      <li><%= link_to membership.group.name, membership %></li>
     </ul>
     <% end %>
   <% else %>
