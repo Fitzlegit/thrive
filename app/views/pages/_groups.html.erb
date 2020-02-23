@@ -1,9 +1,9 @@
 <% if signed_in? %>
   <h1>YOUR GROUPS</h1>
-  <% if current_user.memberships.exists? %>
-    <% current_user.memberships.each do |membership| %>
+  <% if check_membership? %>
+    <% current_user_groups.each do |group| %>
     <ul>
-      <li><%= link_to membership.group.name, membership %></li>
+      <li><%= link_to group.name, group_path(group, :current_group => group) %></li>
     </ul>
     <% end %>
   <% else %>
