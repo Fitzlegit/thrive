@@ -11,9 +11,4 @@ module MembershipsHelper
     memberships = Membership.find_by_user_id(current_user.id)
     memberships.posts.exists?
   end
-
-  def current_membership
-    binding.pry
-    Membership.find_by_user_id_and_group_id(current_user.id, Group.all.find(session[:current_group_id]))
-  end
 end

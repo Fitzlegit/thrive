@@ -7,11 +7,11 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = current_user.memberships[0].posts.build
+    @post = current_membership.posts.build
   end
 
   def create
-    @post = current_user.memberships[0].posts.build(post_params)
+    @post = current_membership.posts.build(post_params)
 
     if @post.save
       redirect_to @post, notice: 'The post was created!'
