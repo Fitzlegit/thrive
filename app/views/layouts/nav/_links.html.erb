@@ -2,7 +2,9 @@
   <ul class="nav navbar-nav">
     <% if user_signed_in? %>
       <li><%= link_to 'Join Group', new_membership_path %></li>
-      <li><%= link_to 'New Post', new_post_path %></li>
+      <% if check_membership? %>
+        <li><%= link_to 'New Post', new_post_path %></li>
+      <% end %>
       <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
       <li><%= link_to 'Log Out', destroy_user_session_path, :method => :delete %></li>
     <% else #user signed out %>

@@ -5,10 +5,10 @@ module MembershipsHelper
   end
 
   # checks if user has any post
-  def membership_posts?
-    return unless check_membership?
+  # def membership_posts?
+  #  return unless check_membership?
 
-    memberships = Membership.find_by_user_id(current_user.id)
-    memberships.posts.exists?
-  end
+  #  memberships = Membership.find_by_user_id(current_user.id)
+  #  memberships.posts.exists?
+  # end
 end

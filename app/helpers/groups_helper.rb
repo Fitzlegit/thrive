@@ -19,6 +19,6 @@ module GroupsHelper
   end
 
   def current_group
-    @current_group
+    @current_group = Group.all.find(session[:current_group_id])
   end
 end

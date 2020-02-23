@@ -1,7 +1,7 @@
 <% if signed_in? %>
 <div id="col-sm-3 single-post-card">
   <div class="card">
-  <% if membership_posts? %>
+<!--  <%# if membership_posts? %> -->
         <% Membership.all.each do |membership| %>
             <% @group_name = Group.find_by_id(membership.group_id).name %>
           <% membership.posts.each do |post| %>
@@ -17,10 +17,10 @@
               <%= "by - #{current_user.first_name}" + " " + "#{current_user.last_name.slice(0)}." %>
             </div>
           </div>
-          <% end %>
-        <% end %>
-      <% end %>
+          <% end %> <!-- if current user -->
+        <% end %> <!-- membership.posts iteration -->
+      <% end %> <!-- memership.all iteration -->
     </div>
   </div>
-  <% end %>
+  <!-- <%# end %> -->
 <% end %>
