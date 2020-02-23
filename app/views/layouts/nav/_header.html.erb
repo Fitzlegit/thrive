@@ -2,7 +2,7 @@
   <ul>
     <li><%= link_to 'T.F.I.O. Inc. - FORUM', root_path, class: 'nav-brand' %></li>
     <% if signed_in? %>
-      <li style="color: white;"><center><%= current_group.name %><center></li>
+      <li style="color: white;"><center><%= current_group_name %><center></li>
     <% end %>
   </ul>
 </div>

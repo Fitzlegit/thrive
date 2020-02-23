@@ -18,7 +18,11 @@ module GroupsHelper
     end
   end
 
-  def current_group
-    @current_group = Group.all.find(session[:current_group_id])
+  def current_group_name
+    if session[:current_group_id].nil?
+      @current_group ||= ''
+    else
+      @current_group = Group.all.find(session[:current_group_id]).name
+    end
   end
 end

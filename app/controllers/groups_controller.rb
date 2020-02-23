@@ -3,6 +3,7 @@ class GroupsController < ApplicationController
 
   def show
     set_group
+    redirect_to '/'
   end
 
   private
