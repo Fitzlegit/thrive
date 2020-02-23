@@ -15,6 +15,10 @@ gem 'sass-rails', '>= 6'
 gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 # Use devise to set up validations
 gem 'devise'
+# Use omniauth to authenticate user
+gem 'omniauth'
+# Use omniauth-facebook strategies
+gem 'omniauth-facebook'
 # Use bootstrap forms
 gem 'bootstrap_form'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
