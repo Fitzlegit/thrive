@@ -4,6 +4,13 @@
 <br/>
 <hr/>
 <br/>
+<div id="comments">
+  <h2><%= @post.comments.count %> Comments </h2>
+  <%= render @post.comments %>
+<br/>
+  <h3>Reply to thread</h3>
+  <%= render "comments/form" %>
+</div>
   <div id="new_post">
     <div class="button">
       <%= link_to "Edit", edit_post_path(@post) %><a/>

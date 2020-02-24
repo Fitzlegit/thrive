@@ -15,11 +15,9 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  resources :memberships, only: [:index, :new, :show]
+  resources :memberships, only: [:index, :new, :create, :show]
 
-  scope module: 'memberships' do
-    resources :groups, only: [:show]
-  end
+  resources :groups, only: [:show]
 
   root 'pages#index'
 end
