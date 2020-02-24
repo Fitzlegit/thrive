@@ -1,0 +1,10 @@
+<div id="comments">
+  <div class="wrapper">
+  <h2 style="color: white;">EDIT REPLY</h2>
+
+  <%= form_for([@post, @comment]) do |f| %>
+    <%= f.text_area :comment %>
+    <p style="float: right;"><%= f.submit %></p>
+  <% end %>
+  </div>
+</div>

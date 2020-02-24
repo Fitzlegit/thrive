@@ -11,11 +11,15 @@ Rails.application.routes.draw do
     get 'signup', to: 'devise/registrations#new'
   end
 
-  resources :posts
+  resources :posts do
+    resources :comments
+  end
 
-  resources :memberships
+  resources :memberships, only: [:index, :new, :show]
 
-  resources :groups
+  scope module: 'memberships' do
+    resources :groups, only: [:show]
+  end
 
   root 'pages#index'
 end

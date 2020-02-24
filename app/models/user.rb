@@ -6,6 +6,7 @@ class User < ApplicationRecord
    :omniauthable, :omniauth_providers => [:facebook]
 
   has_many :memberships
+  has_many :comments
   has_many :groups, through: :memberships
 
   def self.from_omniauth(auth)
