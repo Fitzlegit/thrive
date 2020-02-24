@@ -25,4 +25,8 @@ module GroupsHelper
       @current_group = Group.all.find(session[:current_group_id]).name
     end
   end
+
+  def check_group?
+    !session[:current_group_id].nil?
+  end
 end
